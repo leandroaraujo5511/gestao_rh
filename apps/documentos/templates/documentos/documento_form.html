@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{%  block main %}
+{{ form.errors }}
+    <!--
+        enctype="multipart/form-data" Nessario pra evitar o erro
+        'DocumentoCreate' object has no attribute 'object'
+    -->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form|bootstrap }}
+        <button type="submit" class="btn btn-info">Adcionar</button>
+    </form>
+
+{% endblock %}
